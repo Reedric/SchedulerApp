@@ -11,4 +11,13 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="popup_window">Pop up window for adding a class to a college schedule</string>
+
+    <string name="popup_start_time">Start Time</string>
+    <string name="popup_to">to</string>
+    <string name="popup_end_time">End Time</string>
+    <string name="popup_add_class">Add Class</string>
+    <string name="popup_class_name">Class Name</string>
+    <string name="popup_professor">Professor</string>
+    <string name="popup_add">Add</string>
+    <string name="popup_cancel">Cancel</string>
 </resources>
