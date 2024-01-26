@@ -48,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                     String classStartTime = data.getStringExtra("CLASS_START_TIME");
                                     String classEndTime = data.getStringExtra("CLASS_END_TIME");
                                     String professorName = data.getStringExtra("PROFESSOR_NAME");
-                                    Log.d("MainActivity", "ClassInfo: " + className + ", " + classStartTime + ", " + classEndTime + ", " + professorName);
 
-                                    // Get the HomeViewModel and update the class list
                                     HomeViewModel homeViewModel = new ViewModelProvider(MainActivity.this).get(HomeViewModel.class);
                                     homeViewModel.addClassInfo(new ClassInfo(className, classStartTime, classEndTime, professorName));
                                 }
@@ -85,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }

@@ -20,7 +20,6 @@ public class HomeViewModel extends ViewModel {
     }
 
     public LiveData<List<ClassInfo>> getClassInfoList() {
-        Log.d("HomeViewModel", "Observers notified of classInfoLiveData changes");
         return classInfoLiveData;
     }
 
@@ -31,7 +30,5 @@ public class HomeViewModel extends ViewModel {
         }
         currentList.add(classInfo);
         classInfoLiveData.setValue(currentList);
-        Log.d("HomeViewModel", "Added ClassInfo: " + classInfo.toString());
-
     }
 }

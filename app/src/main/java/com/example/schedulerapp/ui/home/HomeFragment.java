@@ -30,8 +30,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        ListView listView = binding.listViewHome; // Make sure you have a ListView in your fragment_home.xml with this ID
-
+        ListView listView = binding.listViewHome;
         classInfoArrayAdapter = new ArrayAdapter<>(
                 requireActivity(),
                 android.R.layout.simple_list_item_1,
