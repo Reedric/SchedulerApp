@@ -1,4 +1,4 @@
-package com.example.schedulerapp.ui.slideshow;
+package com.example.schedulerapp.ui.todo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.schedulerapp.databinding.FragmentSlideshowBinding;
+import com.example.schedulerapp.databinding.FragmentTodoBinding;
 
-public class SlideshowFragment extends Fragment {
+public class TodoFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentTodoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        TodoViewModel todoViewModel = new ViewModelProvider(this).get(TodoViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentTodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAssignment;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTodo;
+        todoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

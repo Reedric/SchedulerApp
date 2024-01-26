@@ -8,18 +8,24 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.schedulerapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_classes"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.schedulerapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_exams"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.schedulerapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_assignments"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_todo"
+        android:name="com.example.schedulerapp.ui.todo.TodoFragment"
+        android:label="@string/menu_todo"
+        tools:layout="@layout/fragment_todo" />
 </navigation>
