@@ -1,6 +1,7 @@
 package com.example.schedulerapp.ui.classes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -8,13 +9,24 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.example.schedulerapp.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClassPopUp extends Activity {
 
-    Button btn_close;
+    Button btn_close, add_button;
+    Spinner classStartTime, classEndTime;
+    EditText className, professorName;
+    ListView classList;
+    ArrayAdapter<ClassInfo> classListAdapter;
+    List<ClassInfo> classInfoList = new ArrayList<>();;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +35,32 @@ public class ClassPopUp extends Activity {
 
         // Set the function of the close button to close the window
         btn_close = (Button) findViewById(R.id.cancel_button);
+        add_button = (Button) findViewById(R.id.add_button); // Set the function of the add button to add the class details
+        classStartTime = (Spinner) findViewById(R.id.spinnerClassStartTime);
+        classEndTime = (Spinner) findViewById(R.id.spinnerClassEndTime);
+        className = (EditText) findViewById(R.id.editTextClassName);
+        professorName = (EditText) findViewById(R.id.editTextProfessorName);
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+            }
+        });
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Retrieve values from EditText and Spinners
+                String name = className.getText().toString();
+                String startTime = classStartTime.getSelectedItem().toString();
+                String endTime = classEndTime.getSelectedItem().toString();
+                String profName = professorName.getText().toString();
+
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("CLASS_NAME", name);
+                resultIntent.putExtra("CLASS_START_TIME", startTime);
+                resultIntent.putExtra("CLASS_END_TIME", endTime);
+                resultIntent.putExtra("PROFESSOR_NAME", profName);
+                setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
         });

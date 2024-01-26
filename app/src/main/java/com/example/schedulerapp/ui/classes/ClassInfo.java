@@ -1,4 +1,4 @@
-package com.example.schedulerapp;
+package com.example.schedulerapp.ui.classes;
 
 public class ClassInfo {
     private String name;
