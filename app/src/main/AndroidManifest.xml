@@ -13,9 +13,13 @@
         android:theme="@style/Theme.SchedulerApp"
         tools:targetApi="31">
         <activity
-            android:name=".ClassPopUp"
+            android:name=".ui.classes.ClassPopUp"
             android:theme="@style/Theme.SchedulerApp.PopMe"
             android:exported="false">
+        </activity>
+        <activity
+            android:name=".ui.assignment.AssignmentPopUp"
+            android:theme="@style/Theme.SchedulerApp.PopMe">
         </activity>
         <activity
             android:name=".MainActivity"

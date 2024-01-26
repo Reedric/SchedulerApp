@@ -12,6 +12,8 @@
     <string name="menu_assignments">Assignments</string>
     <string name="menu_todo">To-Do</string>
     <string name="popup_window">Pop up window for adding a class to a college schedule</string>
+    <string name="popup_add">Add</string>
+    <string name="popup_cancel">Cancel</string>
 
     <string name="popup_start_time">Start Time</string>
     <string name="popup_to">to</string>
@@ -19,10 +21,11 @@
     <string name="popup_add_class">Add Class</string>
     <string name="popup_class_name">Class Name</string>
     <string name="popup_professor">Professor</string>
-    <string name="popup_add">Add</string>
-    <string name="popup_cancel">Cancel</string>
     <string name="class_description">Adds class to list of classes</string>
 
+    <string name="add_assignment">Add Assignment</string>
+    <string name="assignment_name">Assignment Name</string>
+    <string name="course_name">Course Name</string>
     <string name="exam_description" tools:ignore="ExtraTranslation">Adds exam to list of exams</string>
 
     <string name="assignment_description">Adds assignment to list of assignments</string>

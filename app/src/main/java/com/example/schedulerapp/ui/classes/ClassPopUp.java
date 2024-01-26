@@ -1,4 +1,4 @@
-package com.example.schedulerapp;
+package com.example.schedulerapp.ui.classes;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.schedulerapp.R;
+
 public class ClassPopUp extends Activity {
 
     Button btn_close;
@@ -17,7 +19,7 @@ public class ClassPopUp extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_window);
+        setContentView(R.layout.pop_up_class);
 
         // Set the function of the close button to close the window
         btn_close = (Button) findViewById(R.id.cancel_button);

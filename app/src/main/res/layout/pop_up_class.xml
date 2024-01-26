@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pop_bg"
-    tools:context=".ClassPopUp">
+    tools:context=".ui.classes.ClassPopUp">
 
     <TextView
         android:id="@+id/courseTitle"
