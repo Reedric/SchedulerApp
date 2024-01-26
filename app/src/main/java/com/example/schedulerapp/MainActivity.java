@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), PopUpWindow.class);
+                Intent i = new Intent(getApplicationContext(), ClassPopUp.class);
                 startActivity(i);
             }
         });

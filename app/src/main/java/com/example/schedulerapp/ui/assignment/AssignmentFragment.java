@@ -1,4 +1,4 @@
-package com.example.schedulerapp.ui.home;
+package com.example.schedulerapp.ui.assignment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.schedulerapp.databinding.FragmentHomeBinding;
+import com.example.schedulerapp.databinding.FragmentAssignmentBinding;
 
-public class HomeFragment extends Fragment {
+public class AssignmentFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentAssignmentBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        AssignmentViewModel assignmentViewModel =
+                new ViewModelProvider(this).get(AssignmentViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentAssignmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textClass;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textAssignment;
+        assignmentViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

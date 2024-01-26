@@ -1,7 +1,5 @@
 package com.example.schedulerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -12,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class PopUpWindow extends Activity {
+public class ClassPopUp extends Activity {
 
     Button btn_close;
 
