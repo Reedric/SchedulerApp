@@ -55,25 +55,23 @@ public class ClassPopUp extends Activity {
                 String endTime = classEndTime.getSelectedItem().toString();
                 String profName = professorName.getText().toString();
 
+                // Create a ClassInfo object
+                ClassInfo addedClassInfo = new ClassInfo(name, startTime, endTime, profName);
+
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("CLASS_NAME", name);
-                resultIntent.putExtra("CLASS_START_TIME", startTime);
-                resultIntent.putExtra("CLASS_END_TIME", endTime);
-                resultIntent.putExtra("PROFESSOR_NAME", profName);
+                resultIntent.putExtra("ADDED_CLASS_INFO", addedClassInfo);
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
         });
 
         // Display start times in drop down menu
-        Spinner classStartTime = (Spinner) findViewById(R.id.spinnerClassStartTime);
         String[] startTimes = {"8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "3:30pm", "4:00pm", "4:30pm", "5:00pm"};
         ArrayAdapter<String> startAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, startTimes);
         startAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         classStartTime.setAdapter(startAdapter);
 
         // Display end times in drop down menu
-        Spinner classEndTime = (Spinner) findViewById(R.id.spinnerClassEndTime);
         String[] endTimes = {"9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "3:30pm", "4:00pm", "4:30pm", "5:00pm", "5:30pm", "6:00pm"};
         ArrayAdapter<String> endAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, endTimes);
         endAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

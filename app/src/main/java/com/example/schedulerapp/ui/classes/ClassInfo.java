@@ -1,12 +1,20 @@
 package com.example.schedulerapp.ui.classes;
 
-public class ClassInfo {
+import java.io.Serializable;
+
+public class ClassInfo implements Serializable {
+    private static int nextId = 1;
+
+    private int id;
     private String name;
     private String startTime;
     private String endTime;
     private String professorName;
 
+
+    // Constructor for creating a new class with auto-incremented id
     public ClassInfo(String name, String startTime, String endTime, String professorName) {
+        this.id = nextId++;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -14,6 +22,15 @@ public class ClassInfo {
     }
 
     // Getters and Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
