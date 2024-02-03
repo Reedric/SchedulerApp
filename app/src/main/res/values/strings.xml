@@ -34,6 +34,11 @@
     <string name="course_name">Course Name</string>
     <string name="exam_description" tools:ignore="ExtraTranslation">Adds exam to list of exams</string>
 
+    <string name="add_exam">Add Exam</string>
+    <string name="exam_name">Exam Name</string>
+    <string name="exam_location">Location of Exam</string>
+    <string name="popup_exam_time">Exam Time</string>
+
 
     <string name="assignment_description">Adds assignment to list of assignments</string>
 
