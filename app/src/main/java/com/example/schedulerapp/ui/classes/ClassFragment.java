@@ -3,10 +3,10 @@ package com.example.schedulerapp.ui.classes;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,20 +18,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.schedulerapp.MainActivity;
 import com.example.schedulerapp.databinding.FragmentClassBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ClassFragment extends Fragment {
 
     private FragmentClassBinding binding;
 
-    private FloatingActionButton btn_add;
-
     private ArrayAdapter<ClassInfo> classInfoArrayAdapter;
+
+    private ClassViewModel classViewModel;
 
     private final ActivityResultLauncher<Intent> startActivityForResult =
             registerForActivityResult(
@@ -42,17 +41,35 @@ public class ClassFragment extends Fragment {
                             if (result.getResultCode() == Activity.RESULT_OK) {
                                 Intent data = result.getData();
                                 if (data != null) {
-                                    String className = data.getStringExtra("CLASS_NAME");
-                                    String classStartTime = data.getStringExtra("CLASS_START_TIME");
-                                    String classEndTime = data.getStringExtra("CLASS_END_TIME");
-                                    String professorName = data.getStringExtra("PROFESSOR_NAME");
-
-                                    ClassViewModel classViewModel = new ViewModelProvider(ClassFragment.this).get(ClassViewModel.class);
-                                    classViewModel.addClassInfo(new ClassInfo(className, classStartTime, classEndTime, professorName));
+                                    if (data.getBooleanExtra("FROM_EDIT_CLASS_POPUP", false)) {
+                                        // Handle result from EditClassPopUp
+                                        Serializable originalClass = data.getSerializableExtra("ORIGINAL_CLASS_INFO");
+                                        if (originalClass instanceof ClassInfo) {
+                                            ClassInfo originalClassInfo = (ClassInfo) originalClass;
+                                            classViewModel = new ViewModelProvider(ClassFragment.this).get(ClassViewModel.class);
+                                            classViewModel.deleteClassInfo(originalClassInfo);
+                                        }
+                                        if (data.getBooleanExtra("CONFIRMED_EDIT", false)) {
+                                            Serializable editedClass = data.getSerializableExtra("EDITED_CLASS_INFO");
+                                            if (editedClass instanceof ClassInfo) {
+                                                ClassInfo editedClassInfo = (ClassInfo) editedClass;
+                                                classViewModel.addClassInfo(editedClassInfo);
+                                            }
+                                        }
+                                    } else {
+                                        // Handle result from ClassPopUp
+                                        Serializable serializable = data.getSerializableExtra("ADDED_CLASS_INFO");
+                                        if (serializable instanceof ClassInfo) {
+                                            ClassInfo addedClassInfo = (ClassInfo) serializable;
+                                            ClassViewModel classViewModel = new ViewModelProvider(ClassFragment.this).get(ClassViewModel.class);
+                                            classViewModel.addClassInfo(addedClassInfo);
+                                        }
+                                    }
                                 }
                             }
                         }
                     });
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +93,7 @@ public class ClassFragment extends Fragment {
             classInfoArrayAdapter.notifyDataSetChanged();
         });
 
-        btn_add = binding.btnAddClass;
+        FloatingActionButton btn_add = binding.btnAddClass;
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,9 +102,21 @@ public class ClassFragment extends Fragment {
             }
         });
 
+        // Set OnItemClickListener for listView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ClassInfo selectedClass = classInfoArrayAdapter.getItem(position);
+
+                Intent editIntent = new Intent(getContext(), EditClassPopUp.class);
+                assert selectedClass != null;
+                editIntent.putExtra("SEL_EDITED_CLASS_INFO", selectedClass);
+                startActivityForResult.launch(editIntent);
+            }
+        });
+
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

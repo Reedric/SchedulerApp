@@ -7,6 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+
     <string name="menu_classes">Classes</string>
     <string name="menu_exams">Exams</string>
     <string name="menu_assignments">Assignments</string>
@@ -15,6 +16,7 @@
     <string name="popup_add">Add</string>
     <string name="popup_cancel">Cancel</string>
 
+
     <string name="popup_start_time">Start Time</string>
     <string name="popup_to">to</string>
     <string name="popup_end_time">End Time</string>
@@ -22,13 +24,24 @@
     <string name="popup_class_name">Class Name</string>
     <string name="popup_professor">Professor</string>
     <string name="class_description">Adds class to list of classes</string>
+    <string name="popup_edit_class">Edit Class</string>
+    <string name="popup_edit_confirm">Confirm</string>
+    <string name="popup_edit_delete">Delete</string>
+
 
     <string name="add_assignment">Add Assignment</string>
     <string name="assignment_name">Assignment Name</string>
     <string name="course_name">Course Name</string>
     <string name="exam_description" tools:ignore="ExtraTranslation">Adds exam to list of exams</string>
 
+    <string name="add_exam">Add Exam</string>
+    <string name="exam_name">Exam Name</string>
+    <string name="exam_location">Location of Exam</string>
+    <string name="popup_exam_time">Exam Time</string>
+
+
     <string name="assignment_description">Adds assignment to list of assignments</string>
+
 
     <string name="todo_description">Adds a todo item to todo list</string>
 </resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/textViewExamName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exam Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewExamDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exam Date"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/textViewExamTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exam Time"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/textViewExamLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exam Location"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="exam_recycler" type="id" />
+    <item name="exam_list" type="id"/>
+</resources>
